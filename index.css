@@ -28,6 +28,8 @@
   font-weight: 400;
 }
 
+/* Header Section */
+
 header {
     background: var(--main-color);
     display: flex;
@@ -68,6 +70,7 @@ header .date{
 a.notif, a.inquiry, a.sign, a.log{
   text-decoration: none;
   color: #fff;  
+  transition: all 300ms;
 }
 
 a.notif, a.inquiry{
@@ -76,21 +79,48 @@ a.notif, a.inquiry{
   gap: 10px;
 }
 
+a.notif:hover > .notif-text{
+  text-decoration: underline;
+}
+
+a.inquiry:hover > .inquiry-text{
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 600px) { 
   a.notif .notif-text, a.inquiry .inquiry-text{
     display: none;
+  }
+  a.notif:focus, a.inquiry:focus{
+    color: var(--accent);
   }
 }
 
 a.sign, a.log{
   font-weight: 600;
+  color: var(--bg-color);
+  padding: 0px 10px;
+  border-radius: 5px;
 }
+
+a.log:hover, a.sign:hover{
+  color: var(--main-color);
+  background: var(--bg-color);
+}
+
+a.log:focus, a.sign:focus{
+  color: var(--main-color);
+  background: var(--accent);
+}
+
 
 .vl {
   border-left: 1px solid var(--secondary);
   height: 20px;
   opacity: 50%;
 }
+
+/* Navbar Section */
 
 .navbar{
   display: flex;
@@ -101,31 +131,81 @@ a.sign, a.log{
 
 nav ul{
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
 nav ul li{
   list-style: none;
   font-size: 20px;
+
 }
 
 nav ul li a{
+  padding: 0px 10px;
   text-decoration: none;
   color: black;
+  border-radius: 5px;
+  transition: all 200ms;
+}
+
+nav ul li:first-child > a{
+  background: var(--main-color);
+  color: var(--bg-color);
+}
+
+nav ul li a:hover{
+  color: var(--bg-color);
+  background: var(--bg-footer);
 }
 
 nav .nav-menu{
   display: none;
 }
 
+nav #check{
+  display: none;
+}
+
 @media screen and (max-width: 1080px) { 
   nav ul{
-    display: none;
+    display: block;
+    position: fixed;
+    width: 70%;
+    height: 100svh;
+    z-index: 1;
+    text-align: center;
+    top: 170px;
+    right: -100%;
+    padding: 50px 0 0 30px;
+    background-color: var(--main-color);
+    transition: all 200ms ease-in-out;
+  }
+
+  nav ul li{
+    margin-top: 20px;
+  }
+
+  nav ul li a{
+    color: var(--bg-color);
+    font-size: 22px;
+  }
+
+  nav ul li:first-child > a{
+    background: var(--bg-color);
+    color: #022889;
   }
   nav .nav-menu{
     display: block;
   }
+  nav #check{
+    display: none;
+  }
+  nav #check:checked ~ ul{
+    right:0;
+  }
 }
+
+/* Hero Section */
 
 .Hero{
   width: 100%;
@@ -177,9 +257,16 @@ nav .nav-menu{
   background-color: transparent;
   border: #fff 2px solid;
   color: var(--bg-color);
-  
+  transition: 200ms all;
   font-size: 1em;
 }
+
+.Hero-text button:hover{
+  background-color: var(--bg-color);
+  color: var(--bg-footer);
+}
+
+/* Services Section */
 
 .Services{
   text-align: center;
@@ -222,6 +309,8 @@ nav .nav-menu{
 li p{
   font-size: 16px;
 }
+
+/* Team Section */
 
 .Team{
   text-align: center;
@@ -268,6 +357,8 @@ li p{
   border: white 2px solid;
   border-radius: 50%;
 }
+
+/* Contact Section */
 
 .Contact{
   text-align: center;
@@ -369,6 +460,8 @@ form button{
   color: var(--main-color);
   font-size: 12px;
 }
+
+/* Footer Section */
 
 .Footer{
   display: flex;
